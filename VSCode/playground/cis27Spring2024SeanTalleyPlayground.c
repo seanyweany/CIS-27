@@ -5,15 +5,25 @@
  * Date:         2024/01/23
  */
 
+// Include and Header Files
 #include <stdio.h>
 
+// Function Prototypes
+void test(void);
+
+// Application Driver
 int main() {
-
-    
-    printf("hello world");
-
-    int usrInput;
-    int* iPtr = NULL; // pointer
+    test();
 
     return 0;
 }
+
+// Function Definitions
+void test() {
+    printf("rah!!\n");
+}
+
+/* OUTPUT
+*/
+
+/* ISSUES */

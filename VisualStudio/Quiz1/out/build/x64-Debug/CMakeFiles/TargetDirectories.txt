@@ -1,0 +1,5 @@
+C:/Users/angry/Documents/School/COA/Spring 2024/CIS 27/VisualStudio/Quiz1/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/angry/Documents/School/COA/Spring 2024/CIS 27/VisualStudio/Quiz1/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/angry/Documents/School/COA/Spring 2024/CIS 27/VisualStudio/Quiz1/out/build/x64-Debug/Quiz1/CMakeFiles/Quiz1.dir
+C:/Users/angry/Documents/School/COA/Spring 2024/CIS 27/VisualStudio/Quiz1/out/build/x64-Debug/Quiz1/CMakeFiles/edit_cache.dir
+C:/Users/angry/Documents/School/COA/Spring 2024/CIS 27/VisualStudio/Quiz1/out/build/x64-Debug/Quiz1/CMakeFiles/rebuild_cache.dir

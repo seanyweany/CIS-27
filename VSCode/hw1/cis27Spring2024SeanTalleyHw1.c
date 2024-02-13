@@ -9,7 +9,7 @@
 
 void displayCodingStatementST(void);
 void displayClassInfoHw4ST(void);
-void runMenuHw4ST(void);
+void runMenuHw1ST(void);
 
 void displayDigitDetailST(int);
 
@@ -17,7 +17,7 @@ int main() {
     displayCodingStatementST();
     displayClassInfoHw4ST();
 
-    runMenuHw4ST();
+    runMenuHw1ST();
 
     return 0;
 }
@@ -41,7 +41,7 @@ void displayClassInfoHw4ST() {
     );
 }
 
-void runMenuHw4ST() {
+void runMenuHw1ST() {
     int optionST;
 
     do {
@@ -58,14 +58,14 @@ void runMenuHw4ST() {
 
         switch (optionST) {
             case 1:
-                int inputST;
+                optionST = 0;
 
                 printf("Enter an Integer: ");
-                scanf("%d", &inputST);
+                scanf("%d", &optionST);
 
-                printf("\nCalling displayDigitDetailST() with one argument of %d\n\n", inputST);
+                printf("\nCalling displayDigitDetailST() with one argument of %d\n\n", optionST);
 
-                displayDigitDetailST(inputST);
+                displayDigitDetailST(optionST);
 
                 break;
             case 2:
@@ -122,13 +122,6 @@ void displayDigitDetailST(int inputST) {
         }
         
         currentIntST /= 10;
-    }
-
-    for (int i, j = 0; i < 10; i++) {
-        if (occDigitsST[i] > frequency) {
-            frequency = occDigitsST[i];
-            freqDigits[j++]++;
-        }
     }
 
     printf("  %d is an %s and %s number.\n"

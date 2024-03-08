@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "fractionYourName-2.h"
-#include "cis27Lecture0222.h"
+#include "cis27Lecture0222-1.h"
 #include "cis27Lecture0227.h"
 
 // Application Driver

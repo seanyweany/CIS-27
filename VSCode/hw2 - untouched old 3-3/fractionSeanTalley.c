@@ -25,6 +25,11 @@ TdFractionAddrST createFractionST() {
     frPtr = (TdFractionPtrST)
         malloc(sizeof(TdFractionST));
 
+    // To be Updated
+
+    // Working n and d into the final values
+    // that can be set to the num and denom
+
     frPtr->num = n / gcdST(n, d);
     frPtr->denom = d / gcdST(n, d);
 

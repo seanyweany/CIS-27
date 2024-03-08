@@ -1,5 +1,5 @@
 /**
- * Program Name: cis27Lecture0222Application.c
+ * Program Name: cis27Lecture0229.c
  * Discussion:   Implentation File
  *                 struct Fraction & Relevance
  * Written By:   Your Name
@@ -11,14 +11,10 @@
 // Header/include File
 #include <stdio.h>
 #include <stdlib.h>
-#include "fractionYourName-2.h"
-#include "cis27Lecture0222-1.h"
+#include "fractionYourName-3.h"
+#include "cis27Lecture0222-2.h"
+#include "cis27Lecture0227-1.h"
+#include "cis27Lecture0229.h"
 
-// Application Driver
-int main() {
-
-    testFractionNode();
-
-    return 0;
-}
+// Function Definitions
 

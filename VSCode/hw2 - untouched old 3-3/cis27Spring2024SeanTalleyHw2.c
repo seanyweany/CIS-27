@@ -24,10 +24,5 @@ int main() {
 */
 
 /* Logic_Code_Output_Issues
-I could not get the program to work correctly.
-There are too many issues with the way I pass
-my typedefs and pointers around, and I wasn't
-wise with my time management so I'm all out of
-time. However, I will continue working on this,
-even if there's no way to resubmit the assignment.
+
 */

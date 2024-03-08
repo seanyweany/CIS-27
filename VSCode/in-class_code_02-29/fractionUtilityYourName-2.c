@@ -1,12 +1,19 @@
 /**
- * Program Name: fractionUtilitySeanTalley.c
- * Discussion:   
- * Written By:   Sean Talley
- * Date:         2024/03/03
+ * Program Name: fractionUtilityYourName.c
+ * Discussion:   Specification File
+ *                 Support Functions for Fraction
+ * Written By:   YourName - First + Space + Last
+ * Date:         2024/__/__
  */
 
+#define _CRT_SECURE_NO_WARNINGS
+
+// Header/include File
 #include <stdio.h>
-#include "fractionUtilitySeanTalley.h"
+#include <stdlib.h>
+#include "fractionYourName-3.h"
+
+// Function Definitions
 
 int gcdBF(int arg1, int arg2) {
     int gcd = 1;
@@ -25,7 +32,7 @@ int gcdRecur(int arg1, int arg2) {
         return gcdRecur(arg2, arg1 % arg2);
 }
 
-int gcdST(int arg1, int arg2) {
+int gcdFL(int arg1, int arg2) {
     int nUpdate = (arg1 < 0) ? -arg1 : arg1;
     int dUpdate = (arg2 < 0) ? -arg2 : arg2;
     int gcd;

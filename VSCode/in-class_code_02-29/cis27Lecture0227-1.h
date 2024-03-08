@@ -12,8 +12,8 @@
  // Header/include File
 #include <stdio.h>
 #include <stdlib.h>
-#include "fractionYourName-2.h"
-#include "cis27Lecture0222-1.h"
+#include "fractionYourName-3.h"
+#include "cis27Lecture0222-2.h"
 
 // Function Prototypes
 

@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "cis27spring2024seantalleyhw2utility.h": "c"
+        "cis27spring2024seantalleyhw2utility.h": "c",
+        "cis27lecture0227.h": "c",
+        "fractionutilityyourname-3.h": "c"
     }
 }

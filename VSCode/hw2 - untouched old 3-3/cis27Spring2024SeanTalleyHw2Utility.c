@@ -34,7 +34,7 @@ void displayClassInfoST() {
 void runMenuHw2ST() {
     int optionST;
 
-    TdFractionPtrST fracAryST = NULL;
+    TdFractionPtrAryST fractionAryST = NULL;
 
     do {
         printf("***************************************\n"
@@ -56,36 +56,31 @@ void runMenuHw2ST() {
                        "Calling initFractionSubmenuST() -\n\n"
                 );
 
-                initFractionSubmenuST(&fracAryST);
+                initFractionSubmenuST(fractionAryST);
 
                 break;
             case 2:
                 printf("Calling displayFractionInfoST()!\n\n");
 
-                if (fracAryST) {
-                    displayFractionInfoST(fracAryST);
-                } else {
+                if (fractionAryST == NULL) {
                     printf("  No Fractions ..\n\n");
+                } else {
+
                 }
 
                 break;
             case 3:
                 printf("Displaying Fractions!\n\n");
 
-                if (fracAryST) {
-                    for (int i = 0; i < 2; i++) {
-                        printFractionST(fracAryST + i);
-                    }
-                } else {
+                if (fractionAryST == NULL) {
                     printf("  No Fractions ..\n\n");
+                } else {
+
                 }
                 
                 break;
             case 4:
-                if (fracAryST) {
-                    free(fracAryST);
-                    fracAryST = NULL;
-                }
+                free(fractionAryST);
 
                 printf("All dynamic allocations removed through calls to free()!\n\n"
                         "Have fun!");
@@ -94,10 +89,11 @@ void runMenuHw2ST() {
             default: 
                 printf("Wrong Option!\n\n");
         }
+
     } while (optionST != 4);
 }
 
-void initFractionSubmenuST(TdFractionPtrST* fracPtrAryST) {
+void initFractionSubmenuST(TdFractionPtrST* fractionAryST) {
     int optionSubST;
     int numFrST;
 
@@ -129,13 +125,13 @@ void initFractionSubmenuST(TdFractionPtrST* fracPtrAryST) {
                 if (numFrST < 0) {
                     numFrST = -numFrST;
                 }
-
-                *fracPtrAryST = malloc(sizeof(TdFractionST) * numFrST);
+                
+                fractionAryST = malloc(sizeof(TdFractionST) * numFrST);
 
                 for (int i = 0; i < numFrST; i++) {
                     printf("    For Fraction #%d:\n", i + 1);
 
-                    *(fracPtrAryST + i) = createFractionST();
+                    *(fractionAryST + i) = createFractionST();
                 }
 
                 printf("\n");
@@ -144,12 +140,12 @@ void initFractionSubmenuST(TdFractionPtrST* fracPtrAryST) {
             case 2:
                 printf("  Displaying Fractions -\n\n");
 
-                if (fracPtrAryST) {
-                    for (int i = 0; i < numFrST; i++) {
-                        printFractionST(*(fracPtrAryST + i));
-                    }
-                } else {
+                if (fractionAryST == NULL) {
                     printf("    No Fractions!\n\n");
+                } else {
+                    for (int i = 0; i < numFrST; i++) {
+                        printFractionST(*(fractionAryST + i));
+                    }
                 }
 
                 break;
@@ -164,11 +160,9 @@ void initFractionSubmenuST(TdFractionPtrST* fracPtrAryST) {
     } while (optionSubST != 3);
 }
 
-void displayFractionInfoST(TdFractionPtrST frAryST) {
+void displayFractionInfoST(TdFractionPtrST frPtr) {
     printf("  There is/are %d Fraction(s).\n\n"
            "The unique digit(s) is/are detailed as follows,\n\n"
-        , sizeof(frAryST) // doesn't work
+        , sizeof(frPtr)
     );
-
-    /* TO DO */
 }

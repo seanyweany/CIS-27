@@ -35,6 +35,7 @@ void runMenuHw2ST() {
     int optionST;
 
     TdFractionPtrST fracAryST = NULL;
+    int arySize;
 
     do {
         printf("***************************************\n"
@@ -56,7 +57,7 @@ void runMenuHw2ST() {
                        "Calling initFractionSubmenuST() -\n\n"
                 );
 
-                initFractionSubmenuST(&fracAryST);
+                initFractionSubmenuST(&arySize, &fracAryST);
 
                 break;
             case 2:
@@ -73,7 +74,7 @@ void runMenuHw2ST() {
                 printf("Displaying Fractions!\n\n");
 
                 if (fracAryST) {
-                    for (int i = 0; i < 2; i++) {
+                    for (int i = 0; i < arySize; i++) {
                         printFractionST(fracAryST + i);
                     }
                 } else {
@@ -97,9 +98,9 @@ void runMenuHw2ST() {
     } while (optionST != 4);
 }
 
-void initFractionSubmenuST(TdFractionPtrST* fracPtrAryST) {
+void initFractionSubmenuST(int* arySize, TdFractionPtrST* fracPtrAryST) {
     int optionSubST;
-    int numFrST;
+    // int numFrST;
 
 
     do {
@@ -124,15 +125,15 @@ void initFractionSubmenuST(TdFractionPtrST* fracPtrAryST) {
                        "    How many Fractions? "
                 );
 
-                scanf("%d", &numFrST);
+                scanf("%d", arySize);
 
-                if (numFrST < 0) {
-                    numFrST = -numFrST;
+                if (*arySize < 0) {
+                    *arySize = -(*arySize);
                 }
 
-                *fracPtrAryST = malloc(sizeof(TdFractionST) * numFrST);
+                *fracPtrAryST = malloc(sizeof(TdFractionST) * *arySize);
 
-                for (int i = 0; i < numFrST; i++) {
+                for (int i = 0; i < *arySize; i++) {
                     printf("    For Fraction #%d:\n", i + 1);
 
                     *(fracPtrAryST + i) = createFractionST();
@@ -145,7 +146,7 @@ void initFractionSubmenuST(TdFractionPtrST* fracPtrAryST) {
                 printf("  Displaying Fractions -\n\n");
 
                 if (fracPtrAryST) {
-                    for (int i = 0; i < numFrST; i++) {
+                    for (int i = 0; i < *arySize; i++) {
                         printFractionST(*(fracPtrAryST + i));
                     }
                 } else {

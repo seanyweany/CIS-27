@@ -64,8 +64,7 @@ void runMenuHw2ST() {
                 printf("Calling displayFractionInfoST()!\n\n");
 
                 if (fracAryST) {
-                    printf("*(fracAryST + 0): %d (%p)\n", *(fracAryST + 0), *(fracAryST + 0));
-                    displayFractionInfoST(arySize, *(fracAryST + 0));
+                    displayFractionInfoST(arySize, fracAryST);
                 } else {
                     printf("  No Fractions ..\n\n");
                 }
@@ -147,6 +146,8 @@ void initFractionSubmenuST(int* sizeAddr, TdFractionPtrAryST* fracAryPtrST) {
                     *sizeAddr = -(*sizeAddr);
                 }
 
+                *sizeAddr = *sizeAddr < 0 ? -(*sizeAddr) : *sizeAddr;
+
                 *fracAryPtrST = malloc(sizeof(TdFractionST) * *sizeAddr);
 
                 for (int i = 0; i < *sizeAddr; i++) {
@@ -179,20 +180,85 @@ void initFractionSubmenuST(int* sizeAddr, TdFractionPtrAryST* fracAryPtrST) {
     } while (optionSubST != 3);
 }
 
-void displayFractionInfoST(int sizeST, TdFractionPtrST frPtrST) {
-    int digitsST[] = {0};
-    int uniqueEvenST[] = {0};
-    int uniqueOddST[] = {0};
+void displayFractionInfoST(int sizeST, TdFractionPtrST* frAryST) {
+    int uniqueEvenCount = 0;
+    int uniqueOddCount = 0;
+
+    int uniqueEvenAryST[5] = {0};
+    int uniqueOddAryST[5] = {0};
 
     printf("  There is/are %d Fraction(s).\n\n"
-           "The unique digit(s) is/are detailed as follows,\n\n"
+           "  The unique digit(s) is/are detailed as follows,\n\n"
         , sizeST
     );
 
-    for (int i = 0; i < sizeST * 4; i++) {
-        printf("#%d:\nfrPtrST + i: %d (%p)\nnum: %d\ndenom: %d\n*(frPtrST + i): %d (%p)\n\n",
-        i + 1, frPtrST + i, frPtrST + i, (*(frPtrST + i)).num, (*(frPtrST + i)).denom, *(frPtrST + i), *(frPtrST + i));
+
+    for (int i = 0; i < sizeST; i++) {
+        int tmpST = (*(frAryST + i))->num;
+
+        tmpST = tmpST < 0 ? -tmpST : tmpST;
+
+        while (tmpST) {
+            int currentDigit = (tmpST % 10);
+
+            if (currentDigit % 2) {
+                if (!uniqueOddAryST[currentDigit - 1 / 2]) {
+                    printf("unique odd spotted! %d\n", currentDigit);
+                    uniqueOddAryST[currentDigit - 1 / 2]++;
+                    uniqueOddCount++;
+                }
+            } else {
+                if (!uniqueEvenAryST[currentDigit / 2]) {
+
+                    printf("unique even spotted! %d\n", currentDigit);
+                    uniqueEvenAryST[currentDigit / 2]++;
+                    uniqueEvenCount++;
+                }
+            }
+
+            tmpST /= 10;
+        }
+
+        tmpST = (*(frAryST + i))->denom;
+
+        tmpST = tmpST < 0 ? -tmpST : tmpST;
+
+        while (tmpST) {
+            int currentDigit = (tmpST % 10);
+
+            if (currentDigit % 2) {
+                if (!uniqueOddAryST[(currentDigit - 1) / 2]) {
+                    printf("unique odd spotted! %d\n", currentDigit);
+                    uniqueOddAryST[(currentDigit - 1) / 2]++;
+                    uniqueOddCount++;
+                }
+            } else {
+                if (!uniqueEvenAryST[currentDigit / 2]) {
+                    printf("unique even spotted! %d\n", currentDigit);
+                    uniqueEvenAryST[currentDigit / 2]++;
+                    uniqueEvenCount++;
+                }
+            }
+
+            tmpST /= 10;
+        }
     }
 
-    /* TO DO */
+    printf("    There is/are %d unique even digit(s) of\n", uniqueEvenCount);
+
+    for (int i = 0; i < 5; i++) {
+        if (!uniqueEvenAryST[i]) {
+            printf("      %d seen %d time(s)\n", i * 2, uniqueEvenAryST[i]);
+        }
+    }
+
+    printf("\n    There is/are %d unique odd digit(s) of\n", uniqueOddCount);
+
+    for (int i = 0; i < 5; i++) {
+        if (!uniqueOddAryST[i]) {
+            printf("      %d seen %d time(s)\n", (i * 2) + 1, uniqueEvenAryST[i]);
+        }
+    }
+
+    printf("\n");
 }

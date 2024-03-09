@@ -18,7 +18,7 @@ void displayCodingStatementST(void);
 void displayClassInfoST(void);
 void runMenuHw2ST(void);
 
-void displayFractionInfoST(int, TdFractionPtrST);
+void displayFractionInfoST(int, TdFractionPtrAryST);
 void initFractionSubmenuST(int*, TdFractionPtrAryST*);
 
 #endif

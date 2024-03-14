@@ -24,12 +24,5 @@ int main() {
 */
 
 /* Logic_Code_Output_Issues
-I could still not get the program to work correctly.
-In your code setup, displayFractionInfoST() has a
-single argument of TdFractionPtrFL and I tried to
-no avail to get the program to work with that setup.
-I resorted to changing the argument into a pointer
-(TdFractionPtrFL*) and decided to work with that.
-Even then, I was not able to complete what was needed
-and what does exist doesn't print the desired output.
+
 */

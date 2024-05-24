@@ -26,8 +26,8 @@ void displayClassInfoST() {
 		   "Information --\n"
 		   "Assignment:               HW #2 Exercise #1\n"
 		   "Implemented by:           Sean Talley\n"
-		   "Required Submission Date: 2024/03/08\n"
-		   "Actual Submission Date:   2024/03/08\n\n"
+		   "Required Submission Date: 2024/03/13\n"
+		   "Actual Submission Date:   2024/03/13\n\n"
     );
 }
 
@@ -187,6 +187,8 @@ void displayFractionInfoST(int sizeST, TdFractionPtrST* frAryST) {
     int uniqueEvenAryST[5] = {0};
     int uniqueOddAryST[5] = {0};
 
+    int* test[10] = {0};
+
     printf("  There is/are %d Fraction(s).\n\n"
            "  The unique digit(s) is/are detailed as follows,\n\n"
         , sizeST
@@ -195,6 +197,7 @@ void displayFractionInfoST(int sizeST, TdFractionPtrST* frAryST) {
 
     for (int i = 0; i < sizeST; i++) {
         int tmpST = (*(frAryST + i))->num;
+        int itST = 0;
 
         tmpST = tmpST < 0 ? -tmpST : tmpST;
 
@@ -206,6 +209,15 @@ void displayFractionInfoST(int sizeST, TdFractionPtrST* frAryST) {
                     printf("unique odd spotted! %d\n", currentDigit);
                     uniqueOddAryST[currentDigit - 1 / 2]++;
                     uniqueOddCount++;
+
+                    test[currentDigit - 1][itST] = malloc(sizeST * sizeof(TdFractionST));
+                    *(test[currentDigit - 1] + itST) = test[currentDigit - 1][itST] + *(frAryST + i);
+
+                    printf("****\n"
+                           "test[currentDigit - 1]:    %d\n"
+                           "test[currentDigit - 1][0]: %d\n"
+                           "\n"
+                    , test[currentDigit - 1], test[currentDigit - 1][0]);
                 }
             } else {
                 if (!uniqueEvenAryST[currentDigit / 2]) {

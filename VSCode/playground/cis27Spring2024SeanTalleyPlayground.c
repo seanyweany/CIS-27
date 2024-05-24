@@ -5,17 +5,20 @@
  * Date:         2024/02/01
  */
 
-#define TEST_1
+//#define TEST_1
 //#define TEST_2
+#define TEST_RECURSION
 
 // Include and Header Files
 #include <stdio.h>
 #include <stdlib.h>
+#include "node.h"
 
 // Function Prototypes
 int* dang(void);
 void A(void);
 void B(void (*ptr)());
+void appendNodeToList(TdIntNodeAddr, TdIntNodePtr*);
 
 // Application Driver
 int main() {
@@ -39,6 +42,10 @@ int main() {
     B(ptr);
 #endif
 
+#ifdef TEST_RECURSION
+    void appendNodeToList();
+#endif
+
     return 0;
 }
 
@@ -60,6 +67,18 @@ void A() {
  
 void B(void (*ptr)()) {
     (*ptr)(); // callback to A
+}
+
+void appendNodeToList(TdIntNodeAddr node, TdIntNodePtr* list) {
+    if ((*list)->next) {
+        TdIntNodePtr currentNode = (*list)->next;
+        
+        while (currentNode->next) {
+            currentNode = currentNode->next;
+        }
+    }
+    
+    (*list)->next = node;
 }
 
 /** PROGRAM_OUTPUT

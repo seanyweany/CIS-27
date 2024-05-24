@@ -1,8 +1,13 @@
 {
     "files.associations": {
+        ".fantomasignore": "ignore",
         "stdlib.h": "c",
         "cis27spring2024seantalleyhw2utility.h": "c",
         "cis27lecture0227.h": "c",
-        "fractionutilityyourname-3.h": "c"
+        "fractionutilityyourname-3.h": "c",
+        "fractionyourname.h": "c",
+        "polytermyourname.h": "c",
+        "fractionutilityyourname.h": "c",
+        "polynodeutilityseantalley.h": "c"
     }
 }

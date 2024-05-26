@@ -151,7 +151,7 @@ void initSubmenu(TdPolyNodePtr* poly1Addr,
 
                 if (*poly1Addr) {
 
-                    // Removing the existing poly's
+                    removePoly(poly1Addr);
                 }
 
                 create(poly1Addr, poly2Addr);

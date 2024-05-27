@@ -13,10 +13,10 @@
 #include <stdlib.h>
 #include "fractionSeanTalley.h"
 #include "fractionUtilitySeanTalley.h"
-#include "PolyTermSeanTalley.h"
-#include "PolyTermUtilitySeanTalley.h"
-#include "PolyNodeSeanTalley.h"
-#include "PolyNodeUtilitySeanTalley.h"
+#include "polyTermSeanTalley.h"
+#include "polyTermUtilitySeanTalley.h"
+#include "polyNodeSeanTalley.h"
+#include "polyNodeUtilitySeanTalley.h"
 
 // Function Definitions
 
@@ -28,9 +28,9 @@ int searchNode(TdPolyNodePtr nodeAddr,
     // TODO
 
     if (*polyAddr) {
-        
-
-        while ( *tmpPtrPtr && (*tmpPtrPtr)->termPtr->order > nodeAddr->termPtr->order) {
+        while ((*tmpPtrPtr) &&
+        ((*tmpPtrPtr)->termPtr->order >
+        nodeAddr->termPtr->order)) {
             nodeNumber++;
             tmpPtrPtr = &((*tmpPtrPtr)->next);
         }
@@ -42,15 +42,21 @@ int searchNode(TdPolyNodePtr nodeAddr,
 void insertAfterNode(int nodeNumber,
     TdPolyNodePtr nodeAddr, TdPolyNodePtr* polyAddr) {
     TdPolyNodePtr* tmpPtrPtr = polyAddr;
+    TdPolyNodePtr tmpNodePtr = *polyAddr;
 
     // TODO
 
-    if (nodeNumber) { // 1
+    if (nodeNumber) {
         for (int i = 0; i < nodeNumber; i++) {
             tmpPtrPtr = &((*tmpPtrPtr)->next); // segmentation fault
         }
 
-        if ((*tmpPtrPtr)->termPtr->order == nodeAddr->termPtr->order) {
+        for (int i = 1; i < nodeNumber; i++) {
+            tmpNodePtr = tmpNodePtr->next;
+        }
+
+        if (tmpNodePtr->termPtr->order == 
+            nodeAddr->termPtr->order) {
             (*tmpPtrPtr)->termPtr->coeff =
                 addFraction((*tmpPtrPtr)->termPtr->coeff,
                     nodeAddr->termPtr->coeff);
@@ -219,7 +225,7 @@ void displayPoly(TdPolyNodeAddr* polyNodeAddr) {
     );
 
     while (numTerm) {
-        printf("\n          Term #%d -\n");
+        printf("\n          Term #%d -\n", numTerm);
 
         displayPolyNode(*polyNodeAddr);
 

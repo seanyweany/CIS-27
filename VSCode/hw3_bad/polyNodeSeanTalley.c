@@ -13,8 +13,8 @@
 #include <stdlib.h>
 #include "fractionSeanTalley.h"
 #include "fractionUtilitySeanTalley.h"
-#include "PolyTermSeanTalley.h"
-#include "PolyNodeSeanTalley.h"
+#include "polyTermSeanTalley.h"
+#include "polyNodeSeanTalley.h"
 
 TdPolyNodeAddr createPolyNode() {
     TdPolyNodePtr polyNodePtr = NULL;
@@ -103,9 +103,10 @@ void displayPolyNode(TdPolyNodeAddr polyNodeAddr) {
         "\n            Coefficient - "
         "\n              Address: %p"
         "\n              num: %d"
-        "\n              denom: %d\n", polyNodeAddr->termPtr,
+        "\n              denom: %d\n",
+        &polyNodeAddr,
         polyNodeAddr->termPtr->order,
-        polyNodeAddr->termPtr->coeff,
+        &polyNodeAddr->termPtr->coeff,
         polyNodeAddr->termPtr->coeff.num,
         polyNodeAddr->termPtr->coeff.denom);
 }

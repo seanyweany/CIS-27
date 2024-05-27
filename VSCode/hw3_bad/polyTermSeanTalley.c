@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "fractionSeanTalley.h"
 #include "fractionUtilitySeanTalley.h"
-#include "PolyTermSeanTalley.h"
+#include "polyTermSeanTalley.h"
 
 TdPolyTermAddr createPolyTerm() {
     int n;

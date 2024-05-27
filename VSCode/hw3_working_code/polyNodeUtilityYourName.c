@@ -57,7 +57,7 @@ void insertAfterNode(int nodeNumber,
 
         if (tmpNodePtr->termPtr->order == 
             nodeAddr->termPtr->order) {
-            (*tmpPtrPtr)->termPtr->coeff =
+            (*tmpPtrPt9n ppu r)->termPtr->coeff =
                 addFraction((*tmpPtrPtr)->termPtr->coeff,
                     nodeAddr->termPtr->coeff);
 
